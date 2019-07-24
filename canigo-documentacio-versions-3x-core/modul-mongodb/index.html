@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html xml:lang="ca-ES" lang="ca-ES" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+	<title>Mòdul MongoDB</title>
+		<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+	<link href="/css/master.min.css" rel="stylesheet" type="text/css" />
+	<link href="/css/canigo.css" rel="stylesheet" type="text/css" />
+	<script src="/js/jquery.min.js" type="text/javascript"></script>
+
+	<script>
+		document.write("<meta name=\"titol\" content=\"Mòdul MongoDB\" />");
+		document.write("<meta name=\"description\" content=\"Mòdul de persistència de Base de Dades per MongoDB.\" />");
+	</script>
+
+	
+
+</head>
+<body class="single">
+	<div class="contenidor unfixed">
+
+				
+
+		<header class="fons_header navbar navbar-default z-index-menu">
+			<div class="container" role="menu">
+				<div class="row clearfix menuNav">
+					<div class="col-md-3 col-xs-3 column visible-xs coloca ">
+						<button type="button" onclick="amunt();" title="Menu"
+							class="navbar-toggle pull-left" data-toggle="collapse"
+							data-target=".navbar-collapse">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+					</div>
+
+					<div class="col-md-3 col-xs-6 col-offset-2 column visible-xs titol-mobil">
+						
+						<span class="white titol-mobil-destacat">canigo.ctti</span><span class="white">.gencat.cat</span>
+					</div>
+
+					<div class="col-md-3 col-xs-3 column visible-xs coloca1">
+						<button onclick="amunt();" type="button" title="Cerca"
+							class="ico_cerca " data-toggle="collapse" data-target=".dos">
+						</button>
+					</div>
+
+				</div>
+
+				<div class="collapse dos">
+					<div class="shadowBox">
+						<form class="navbar-form navbar-left primer" action="/cercador/" method="get"
+ 						onsubmit="location.href=this.action+'?q='+this.cerca_cap.value; return false;">
+							<div class="form-group">
+								<input type="search" class="form-control" name="q" id="cerca_cap"
+									title="Cerca"
+									placeholder="Cerca" />
+								<button type="button" title="Neteja" class="btn btn-default"></button>
+								<input type="submit" class="ocult" name="Cerca" value="Cerca" />
+							</div>
+						</form>
+					</div>
+				</div>	
+
+				<nav class="collapse navbar-collapse navbar-ex1-collapse ">
+				
+					<div class="row">
+						<div class="col-md-6 col-sm-4 column">
+							<a class="img-responsive logo" title="Generalitat de Catalunya"
+								href="https://ctti.gencat.cat/">gencat.cat</a>
+							<button class="menu_tancar visible-xs collapsed"
+								data-target=".navbar-collapse" data-toggle="collapse"
+								title="Tancar"></button>
+						</div>
+
+						<div class="col-md-6 col-sm-8 column hidden-xs hidden-mg">
+							<form class="navbar-form cercador_vermell hidden-xs pull-right" action="/cercador/"  method="get" onsubmit="location.href=this.action+'?q='+this.cerca2.value; return false;">
+								<div class="form-group">
+									<label class="hidden" for="cerca2">Cerca</label>
+									<input id="cerca2" class="form-control" type="search" 
+									placeholder="Cerca" name="q" title="Cerca">
+									<input class="btn btn-default" type="submit" title="Cerca" value="">
+								</div>
+							</form>
+
+							
+
+						</div>
+
+					</div>
+					<div class="col-xs-12 hidden-xs" id="nomPortal">
+                    	<span class="titol-cap-nou">Centre de Telecomunicacions i Tecnologies de la Informació</span>
+                    </div>					
+					<ul class="nav navbar-nav">
+
+			        	
+
+						<li>
+							<a class="dropdown-toggle" href='/' data-toggle='_dropdown'>Inici</a>
+						</li>
+
+						
+
+						<li>
+							<a class="dropdown-toggle" href='/arqctti' data-toggle='_dropdown'>Arquitectura CTTI</a>
+						</li>
+
+						
+
+						<li>
+							<a class="dropdown-toggle" href='/blog' data-toggle='_dropdown'>Blog</a>
+						</li>
+
+						
+
+						<li>
+							<a class="dropdown-toggle" href='/cloud' data-toggle='_dropdown'>Cloud</a>
+						</li>
+
+						
+
+						<li>
+							<a class="dropdown-toggle" href='/canigo' data-toggle='_dropdown'>Canigó</a>
+						</li>
+
+						
+
+						<li>
+							<a class="dropdown-toggle" href='/sic' data-toggle='_dropdown'>SIC</a>
+						</li>
+
+						
+
+						<li>
+							<a class="dropdown-toggle" href='/sgde' data-toggle='_dropdown'>SGDE</a>
+						</li>
+
+						
+
+						<li>
+							<a class="dropdown-toggle" href='/gicar' data-toggle='_dropdown'>GICAR</a>
+						</li>
+
+						
+
+						<li>
+							<a class="dropdown-toggle" href='/cs' data-toggle='_dropdown'>Centres de Suport</a>
+						</li>
+
+						
+
+						<li>
+							<a class="dropdown-toggle" href='/dadesref' data-toggle='_dropdown'>Gestió Tècnica de Dades</a>
+						</li>
+
+						
+
+					</ul>
+
+				</nav>
+			</div>
+		</header>
+
+
+
+	</div>
+
+	<section class="border-start">
+
+						
+			
+
+			<article class="bgGrey">
+				<div class="container">
+					<div class="row">
+						<div class="capcelera_basica col-sm-12">
+							<div class="capcelera_basica_cont">
+								<ol class="breadcrumb filariana hidden-xs">
+									<li>
+										<a href="/">Inici</a>
+									</li>
+									<li class="breadcrumbs2">
+									
+										<a href="/canigo-documentacio-versions-3x-core">
+											
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+										</a>
+										
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<a href="/canigo/">Framework Canigó</a> </li>
+	<li>
+		<a href="/canigo-documentacio/">Documentació</a>
+	</li>
+
+	<li>
+		<a href="/canigo-documentacio-versions/">Versions</a>
+	</li>
+
+	<li>
+		<a href="/canigo-documentacio-versions-3x">Versió 3.x</a>
+	</li>
+
+	<li>
+		
+			<a href="/canigo-documentacio-versions-3x-core">Mòduls Generals</a>
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									
+									</li>
+
+								</ol>
+
+								<h1 class="capcelera_flotant pull-left" data-txt=".title">
+									
+
+										
+											
+
+
+
+
+
+	Mòdul MongoDB
+
+
+										
+
+									
+								</h1>
+
+								
+
+								
+								
+
+								
+
+								
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</article>
+
+			
+
+
+		   <div class="padding-xs container">
+	    	
+	    	   <i><b>Darrera actualització:</b></i> 21-03-2019
+	        
+           </div>
+           
+			<article class="padding-xs padding-sm padding-md contingut">				
+				<div class="container">
+ 		
+					
+				
+
+	
+
+
+					
+
+						
+
+<h2 id="propòsit">Propòsit</h2>
+
+<p>Aquest mòdul proporciona accés i l&rsquo;execució d&rsquo;operacions a una base de dades Mongodb.</p>
+
+<p>Aquest mòdul utilitza Spring Data MongoDB i QueryDSL. Es pot trobar informació sobre aquests frameworks a la documentació de referència:</p>
+
+<ul>
+<li><a href="https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/">Spring Data Mongo</a>.</li>
+<li><a href="http://www.querydsl.com/static/querydsl/latest/reference/html/">QueryDSL</a></li>
+</ul>
+
+<p>A partir de la versió 3.4 de Canigó, s&rsquo;ha proporcionat les funcionalitats de reactiu per Mongodb</p>
+
+<h2 id="instal-lació">Instal·lació</h2>
+
+<p>Es pot afegir el mòdul MongoDB a una aplicació ja generada a partir de l&rsquo;eina de suport al desenvolupador. L&rsquo;eina de suport al desenvolupador inclourà la referència i les dependències dins del pom.xml.
+En cas d&rsquo;una instal- lació manual afegir les següents línies al pom.xml de l&rsquo;aplicació:</p>
+
+<pre><code>    &lt;canigo.persistence.mongodb.version&gt;[2.0.0,2.1.0)&lt;/canigo.persistence.mongodb.version&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;cat.gencat.ctti&lt;/groupId&gt;
+      &lt;artifactId&gt;canigo.persistence.mongodb&lt;/artifactId&gt;
+      &lt;version&gt;${canigo.persistence.mongodb.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+</code></pre>
+
+<p>Al pom.xml també s&rsquo;ha d&rsquo;afegir el plugin que genera les classes per als filtres de <a href="http://www.querydsl.com/">QueryDSL</a> i
+el que executa el test unitari del mòdul de persistència:</p>
+
+<pre><code>&lt;build&gt;
+	...
+	&lt;plugins&gt;
+		...
+		&lt;plugin&gt;
+			&lt;groupId&gt;com.mysema.maven&lt;/groupId&gt;
+			&lt;artifactId&gt;apt-maven-plugin&lt;/artifactId&gt;
+			&lt;version&gt;1.1.3&lt;/version&gt;
+			&lt;executions&gt;
+			...
+    			&lt;execution&gt;
+                    &lt;id&gt;org.springframework.data.mongodb.repository.support.MongoAnnotationProcessor&lt;/id&gt;
+                    &lt;goals&gt;
+                      &lt;goal&gt;process&lt;/goal&gt;
+                      &lt;goal&gt;test-process&lt;/goal&gt;
+                    &lt;/goals&gt;
+                    &lt;configuration&gt;
+                      &lt;outputDirectory&gt;target/generated-sources/java&lt;/outputDirectory&gt;
+                      &lt;processor&gt;org.springframework.data.mongodb.repository.support.MongoAnnotationProcessor&lt;/processor&gt;
+                    &lt;/configuration&gt;
+                &lt;/execution&gt;
+			...
+			&lt;/executions&gt;
+		&lt;/plugin&gt;
+		...
+	&lt;/plugins&gt;
+	...
+&lt;/build&gt;	
+</code></pre>
+
+<p>Si l&rsquo;aplicació està configurada amb Spring Boot es necessari afegir la dependencia:</p>
+
+<pre><code>    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-data-mongodb&lt;/artifactId&gt;
+        &lt;exclusions&gt;
+            &lt;exclusion&gt;
+              &lt;artifactId&gt;spring-boot-starter-logging&lt;/artifactId&gt;
+              &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;/exclusion&gt;
+        &lt;/exclusions&gt;
+    &lt;/dependency&gt;
+</code></pre>
+
+<p>Si es vol utilitzar Embeded Mongo per executar els tests es necessari afegir la dependencia:</p>
+
+<pre><code>    &lt;dependency&gt;
+        &lt;groupId&gt;de.flapdoodle.embed&lt;/groupId&gt;
+        &lt;artifactId&gt;de.flapdoodle.embed.mongo&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;cz.jirutka.spring&lt;/groupId&gt;
+        &lt;artifactId&gt;embedmongo-spring&lt;/artifactId&gt;
+        &lt;version&gt;RELEASE&lt;/version&gt;
+    &lt;/dependency&gt;
+</code></pre>
+
+<h2 id="configuració">Configuració</h2>
+
+<p>La configuració es realitza automàticament a partir de l&rsquo;eina de suport al desenvolupament (plugin de Canigó per a Eclipse)</p>
+
+<p>En cas que no es generi automàticament el codi, s&rsquo;ha de realitzar manualment la següent configuració:</p>
+
+<h3 id="configuració-no-reactiu">Configuració no reactiu</h3>
+
+<p><strong>mongodb.properties</strong></p>
+
+<p>Ubicació proposada: <PROJECT_ROOT>/src/main/resources/config/props/mongodb.properties</p>
+
+<table>
+<thead>
+<tr>
+<th>Propietat</th>
+<th>Requerit</th>
+<th>Descripció</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>*.mongodb.uri</td>
+<td>Si</td>
+<td>URL de connexió amb la BD MongoDB. Per més informació <a href="http://api.mongodb.com/java/current/com/mongodb/MongoClientURI.html">http://api.mongodb.com/java/current/com/mongodb/MongoClientURI.html</a></td>
+</tr>
+
+<tr>
+<td>*.mongodb.host</td>
+<td>No</td>
+<td>Requerit si no està definida la propietat mongodb.uri. Host de la connexió amb la BD MongoDB</td>
+</tr>
+
+<tr>
+<td>*.mongodb.port</td>
+<td>No</td>
+<td>Requerit si no està definida la propietat mongodb.uri. Port de la connexió amb la BD MongoDB</td>
+</tr>
+
+<tr>
+<td>*.mongodb.database</td>
+<td>No</td>
+<td>Requerit si no està definida la propietat mongodb.uri. Nom de la BD de la connexió amb la BD MongoDB</td>
+</tr>
+
+<tr>
+<td>*.mongodb.authenticationDatabase</td>
+<td>No</td>
+<td>Requerit si no està definida la propietat mongodb.uri. Nom de la BD MongoDB si esta autenticada</td>
+</tr>
+
+<tr>
+<td>*.mongodb.username</td>
+<td>No</td>
+<td>Requerit si no està definida la propietat mongodb.uri. Usuari de la connexió amb la BD MongoDB</td>
+</tr>
+
+<tr>
+<td>*.mongodb.password</td>
+<td>No</td>
+<td>Requerit si no està definida la propietat mongodb.uri. Secret de la connexió amb la BD MongoDB</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>MongoConfig.java</strong></p>
+
+<p>Ubicació recomenada: <PROJECT_ROOT>/src/main/java/ <em>package de l&rsquo;aplicacio</em> /mongodb/config</p>
+
+<p>Es necessari crear l&rsquo;arxiu de configuració de l&rsquo;aplicació per a MongoDB. Es necessari extendre de la configuració de <strong>cat.gencat.ctti.canigo.arch.persistence.mongodb.config.MongoCoreConfig</strong></p>
+
+<p>En aquest fitxer de configuració s&rsquo;hi pot sobreesciure la configuració de la connexió per defecte utilitzant el constructor</p>
+
+<pre><code>public MongoCoreConfig(MongoClientOptions options). 
+</code></pre>
+
+<p>Per més informació sobre les configuracions es pot consultar: <a href="http://api.mongodb.com/java/current/com/mongodb/MongoClientOptions.html">http://api.mongodb.com/java/current/com/mongodb/MongoClientOptions.html</a></p>
+
+<p>En aquest fitxer també s&rsquo;hi pot afegir els diferents listeners de les diferents entitats de MongoDB</p>
+
+<p>Un exemple de fitxer de configuració seria:</p>
+
+<pre><code>import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import com.mongodb.MongoClientOptions;
+
+import cat.gencat.ctti.canigo.arch.persistence.mongodb.repository.MongoEquipamentListener;
+
+@Configuration
+public class EquipamentMongoConfig extends MongoCoreConfig {
+
+	protected static MongoClientOptions mongoClientOptions;
+
+	public EquipamentMongoConfig() {
+		super(mongoOptions());
+	}
+
+	@Bean
+	public MongoEquipamentListener mongoEquipamentListener() {
+		return new MongoEquipamentListener();
+	}
+
+	@Bean
+	public static MongoClientOptions mongoOptions() {
+		if (mongoClientOptions == null) {
+			mongoClientOptions = MongoClientOptions.builder().socketTimeout(2000).build();
+		}
+		return mongoClientOptions;
+	}
+
+}
+</code></pre>
+
+<p>On s&rsquo;està redefinit el socket time out de la connexió a 2000 ms i s&rsquo;està registrant el listener cat.gencat.demo.mongodb.model.repository.MongoEquipamentListener</p>
+
+<h3 id="configuració-reactiu">Configuració reactiu</h3>
+
+<p><strong>mongodb.properties</strong></p>
+
+<p>Ubicació proposada: <PROJECT_ROOT>/src/main/resources/config/props/mongodb.properties</p>
+
+<table>
+<thead>
+<tr>
+<th>Propietat</th>
+<th>Requerit</th>
+<th>Descripció</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>*.mongodb.uri</td>
+<td>Si</td>
+<td>URL de connexió amb la BD MongoDB. Per més informació <a href="https://docs.mongodb.com/manual/reference/connection-string/#connection-string-options">https://docs.mongodb.com/manual/reference/connection-string/#connection-string-options</a></td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>ReactiveMongoConfig.java</strong></p>
+
+<p>Ubicació recomenada: <PROJECT_ROOT>/src/main/java/ <em>package de l&rsquo;aplicacio</em> /mongodb/config</p>
+
+<p>Es necessari crear l&rsquo;arxiu de configuració de l&rsquo;aplicació per a reactive MongoDB. Es necessari extendre de la configuració de <strong>cat.gencat.ctti.canigo.arch.persistence.mongodb.config.ReactiveMongoCoreConfig</strong></p>
+
+<p>En aquest fitxer també s&rsquo;hi pot afegir els diferents listeners de les diferents entitats de MongoDB</p>
+
+<p>Un exemple de fitxer de configuració seria:</p>
+
+<pre><code class="language-java">
+import org.springframework.context.annotation.Configuration;
+
+import cat.gencat.ctti.canigo.arch.persistence.mongodb.config.ReactiveMongoCoreConfig;
+
+@Configuration
+public class ReactiveMongoConfig extends ReactiveMongoCoreConfig {
+
+
+}
+</code></pre>
+
+<h2 id="entitats">Entitats</h2>
+
+<p>Per definir les entits de MongoDB es necessari utilitzar les annotations de JSR 380, Spring Data i Spring Data MongoDB. Per més informació:
+<a href="https://docs.oracle.com/javaee/7/api/javax/validation/package-summary.html">https://docs.oracle.com/javaee/7/api/javax/validation/package-summary.html</a>
+<a href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/annotation/package-summary.html">https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/annotation/package-summary.html</a>
+<a href="https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/">https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/</a></p>
+
+<p>Un exemple de entitat de MongoDB seria:</p>
+
+<pre><code>import javax.validation.constraints.NotNull;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = &quot;Equipament&quot;)
+public class MongoEquipament {
+	
+	public static final String ID = &quot;id&quot;;
+	public static final String NOM = &quot;nom&quot;;
+	public static final String MUNICIPI = &quot;municipi&quot;;
+
+	@Id
+	private Long id;
+
+	@Indexed(unique = true)
+	@NotNull(message = &quot;MongoEquipament's nom must not be null&quot;)
+	private String nom;
+
+	private String municipi;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getMunicipi() {
+		return municipi;
+	}
+
+	public void setMunicipi(String municipi) {
+		this.municipi = municipi;
+	}
+
+}
+</code></pre>
+
+<h2 id="ús-dels-repositoris">Ús dels repositoris</h2>
+
+<p>Per a utilitzar els repositoris s&rsquo;ha de generar un objecte MongoRepository per a l&rsquo;entitat desitjada(T), que ha d&rsquo;extendre de <strong>cat.gencat.ctti.canigo.arch.persistence.mongodb.repository.MongoGenericRepository<T, ID extends Serializable></strong></p>
+
+<p>Un exemple de repository seria:</p>
+
+<pre><code>import java.util.List;
+
+import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.repository.Query;
+
+import cat.gencat.ctti.mongodb.model.MongoEquipament;
+import cat.gencat.ctti.canigo.arch.persistence.mongodb.repository.MongoGenericRepository;
+
+public interface EquipamentMongoRepository extends MongoGenericRepository&lt;MongoEquipament, Long&gt;{
+
+	@Query(&quot;{ nom: ?0 }&quot;)
+	List&lt;MongoEquipament&gt; findByNomQuery(String nom);
+
+	List&lt;MongoEquipament&gt; findByNomLike(String nom, Sort sort);
+
+
+}
+</code></pre>
+
+<p>A un repositori es poden definir mètodes per cada query que es vulgui definir. La construcció utilitza els prefixos find&hellip;By, read&hellip;By, query&hellip;By, count&hellip;By i get&hellip;By. El mètode pot incoporar la paraula Distinct, concatenar propietats amb And i Or o descriptors com OrderBy o IgnoreCase.</p>
+
+<p>Més informació a la documentació oficial de <a href="https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/">Spring Data MongoDB</a></p>
+
+<h4 id="utilització-de-querydsl">Utilització de QueryDSL</h4>
+
+<p>Una de les funcionalitats proposades és la d&rsquo;utilitzar QueryDSL per a realitzar cerques segons filtres dinàmics, amb paginació i/o ordenació.</p>
+
+<p>El MongoGenericRepository proporciona els següents mètodes:</p>
+
+<pre><code>	Page&lt;T&gt; findAll(Predicate predicate, Pageable pageable, Path&lt;?&gt;... paths);
+
+	Page&lt;T&gt; findAll(Predicate predicate, Pageable pageable, List&lt;Path&lt;?&gt;&gt; paths);
+	
+	Page&lt;T&gt; findAll(Predicate predicate, Pageable pageable, FactoryExpression&lt;T&gt; factoryExpression);
+</code></pre>
+
+<p>Aquests mètodes espera un objecte org.springframework.data.domain.Pageable que conté el número de pàgina (la primera pàgina és la 0), el nombre d&rsquo;elements per pàgina, la direcció d&rsquo;ordenació, el camp d&rsquo;ordenació. Un objecte Predicate amb la query que es vol realitzar i un objecte Path o FactoryExpression on s&rsquo;indica la informació que es vol retornar</p>
+
+<p>Un exemple d&rsquo;utilització seria:</p>
+
+<pre><code>List&lt;MongoEquipament&gt; mongoEquipamentList = repository.findAll(QMongoEquipament.mongoEquipament.nom.isNotNull().and(QMongoEquipament.mongoEquipament.nom.isNotEmpty())
+						.and(QMongoEquipament.mongoEquipament.municipi.isNotNull())
+						.and(QMongoEquipament.mongoEquipament.municipi.isNotEmpty())
+						.and(QMongoEquipament.mongoEquipament.nom.equalsIgnoreCase(&quot;findPaginatedPath&quot;)),
+				new PageRequest(0, 10), paths).getContent();
+</code></pre>
+
+<p>Es pot utitlizar les utilitzats de <strong>cat.gencat.ctti.canigo.arch.persistence.core.querydsl.GenericPredicateBuilder</strong> per generar el Predicate, per exemple:</p>
+
+<pre><code>    GenericPredicateBuilder&lt;MongoEquipament&gt; builder = new GenericPredicateBuilder&lt;MongoEquipament&gt;(
+				MongoEquipament.class, &quot;equipament&quot;);
+	builder.populateSearchCriteria(filter);
+	Predicate predicate = builder.build();
+</code></pre>
+
+<p>On el String filter ha de seguir el patró:</p>
+
+<p><strong>field1Operador1Valor1,field2Operador2Valor2,fieldNOperadorNValorN</strong></p>
+
+<ul>
+<li>on Field és el nom d&rsquo;una propietat de l&rsquo;entitat (per exemple id)<br></li>
+<li>on Operador és un dels tipus d&rsquo;operador suportats:</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Operador</th>
+<th>Descripció</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>&gt;</td>
+<td>major que</td>
+</tr>
+
+<tr>
+<td>&gt;:</td>
+<td>major o igual que</td>
+</tr>
+
+<tr>
+<td>&lt;</td>
+<td>menor que</td>
+</tr>
+
+<tr>
+<td>&lt;:</td>
+<td>menor o igual que</td>
+</tr>
+
+<tr>
+<td>&lt;&gt;</td>
+<td>diferent de</td>
+</tr>
+
+<tr>
+<td>:</td>
+<td>igual que</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>on valor és el valor amb el qual es vol comparar.</li>
+</ul>
+
+<p>Per exemple, per cercar l&rsquo;entitat que tingui id major que 15 i amb nom igual a &lsquo;Prova&rsquo; el filtre hauria de ser el següent:<br>
+id&gt;15,nom:Prova</p>
+
+<p>Més informació a la documentació oficial de <a href="http://www.querydsl.com/static/querydsl/latest/reference/html/">QueryDSL</a></p>
+
+<p>Querydsl està enfocat a bd relacionals, a partir de la versió 3.4 de Canigó s&rsquo;ha deprecat els mètodes de &ldquo;cat.gencat.ctti.canigo.arch.persistence.mongodb.repository.MongoGenericRepository&rdquo;, es recomana no utilitzar-los</p>
+
+<p><strong>MongoListeners</strong></p>
+
+<p>Si es necessari, es pot crear un listener a una entitat de Mongo</p>
+
+<p>Un exemple de listener seria:</p>
+
+<pre><code>import java.util.Random;
+
+import org.springframework.data.mongodb.core.mapping.event.AbstractMongoEventListener;
+import org.springframework.data.mongodb.core.mapping.event.BeforeConvertEvent;
+
+import cat.gencat.ctti.mongodb.model.MongoEquipament;
+
+/**
+ * Equivalent of a domain method annotated by &lt;code&gt;PrePersist&lt;/code&gt;.
+ */
+public class MongoEquipamentListener extends AbstractMongoEventListener&lt;MongoEquipament&gt; {
+
+	@Override
+	public void onBeforeConvert(BeforeConvertEvent&lt;MongoEquipament&gt; event) {
+		MongoEquipament mongoEquipament = event.getSource();
+		if (mongoEquipament.getId() == null) {
+			// TODO use a better UUID generator in production
+			mongoEquipament.setId(new Random().nextLong());
+		}
+	}
+
+}
+</code></pre>
+
+<p>Per generar id únics a l&rsquo;entitat MongoEquipament abans de guardar-la</p>
+
+<p><strong>Embeded Mongo</strong></p>
+
+<p>Per a poder provar el codi generat per MongoDB en un test es pot utilitzar la utilitat Embeded Mongo. Es necessari extendre del fitxer de configuració de Mongo de l&rsquo;aplciació i sobreesciure el mètode</p>
+
+<pre><code>public Mongo mongo() throws Exception {
+</code></pre>
+
+<p>Un exemple de configuració per a Embeded MongoDB seria:</p>
+
+<pre><code>import com.mongodb.Mongo;
+
+import cz.jirutka.spring.embedmongo.EmbeddedMongoFactoryBean;
+
+public class EquipamentEmbeddedMongoConfig extends EquipamentMongoConfig {
+
+	@Override
+	public Mongo mongo() throws Exception {
+		if (mongo == null) {
+			EmbeddedMongoFactoryBean embeddedMongoFactoryBean = new EmbeddedMongoFactoryBean();
+			// embeddedMongoFactoryBean.setBindIp(host);
+			// embeddedMongoFactoryBean.setPort(port);
+			// embeddedMongoFactoryBean.setVersion(&quot;3.6&quot;);
+			mongo = embeddedMongoFactoryBean.getObject();
+		}
+		return mongo;
+	}
+}
+</code></pre>
+
+<p><strong>Test per MongoDB</strong>
+Per poder provar el codi per MongoDB només es necessari importar el fitxer de configuració de MongoDB en el nostre test</p>
+
+<p>Així, si tenim el test següent:</p>
+
+<pre><code>import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
+import static org.junit.Assert.assertThat;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.domain.Sort.Order;
+
+import com.querydsl.core.types.Expression;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.Predicate;
+import com.querydsl.core.types.Projections;
+
+import cat.gencat.ctti.mongodb.model.MongoEquipament;
+import cat.gencat.ctti.mongodb.model.QMongoEquipament;
+import cat.gencat.ctti.mongodb.model.repository.EquipamentMongoRepository;
+import cat.gencat.ctti.canigo.arch.persistence.core.querydsl.GenericPredicateBuilder;
+
+/**
+ * Test cases for the {@link EquipamentMongoRepository}.
+ */
+public abstract class EquipamentMongoRepositoryCoreTest {
+	
+	@Autowired
+	EquipamentMongoRepository repository;
+
+	@Before
+	public void setUp() {
+		Assert.assertNotNull(repository);
+		repository.deleteAll();
+	}
+
+	@Test
+	public void test1CRUDOperations() {
+
+		// Test if table is empty
+		Assert.assertTrue(repository.findAll().isEmpty());
+
+		// Test save
+		MongoEquipament mongoEquipament = new MongoEquipament();
+		mongoEquipament.setNom(&quot;CAP La Pau&quot;);
+		mongoEquipament.setMunicipi(&quot;Barcelona&quot;);
+		repository.save(mongoEquipament);
+
+		// Test insert and recover
+		MongoEquipament mongoEquipament2 = new MongoEquipament();
+		mongoEquipament2.setNom(&quot;CAP Santa Coloma&quot;);
+		repository.save(mongoEquipament2);
+		MongoEquipament equipament3 = repository.findOne(mongoEquipament2.getId());
+		Assert.assertEquals(equipament3.getId(), mongoEquipament2.getId());
+		Assert.assertEquals(equipament3.getNom(), &quot;CAP Santa Coloma&quot;);
+
+		// Test delete all
+		repository.deleteAll();
+		Assert.assertTrue(repository.findAll().isEmpty());
+
+	}
+
+	@Test
+	public void test2MultipleCRUD() {
+
+		List&lt;MongoEquipament&gt; list = new ArrayList&lt;MongoEquipament&gt;();
+
+		MongoEquipament mongoEquipament1 = new MongoEquipament();
+		MongoEquipament mongoEquipament2 = new MongoEquipament();
+		MongoEquipament mongoEquipament3 = new MongoEquipament();
+
+		list.add(mongoEquipament1);
+		list.add(mongoEquipament2);
+		list.add(mongoEquipament3);
+
+		// Test save
+		mongoEquipament1.setNom(&quot;equipament1&quot;);
+		mongoEquipament2.setNom(&quot;equipament2&quot;);
+		mongoEquipament3.setNom(&quot;equipament3&quot;);
+		repository.save(list);
+		Assert.assertEquals(list.size(), repository.findAll().size());
+
+		// Test update
+		mongoEquipament1.setNom(&quot;equipament1 updated!&quot;);
+		mongoEquipament2.setNom(&quot;equipament2 updated!&quot;);
+		mongoEquipament3.setNom(&quot;equipament3 updated!&quot;);
+		repository.save(list);
+		Assert.assertEquals(list.size(), repository.findAll().size());
+
+		List&lt;MongoEquipament&gt; elsMeusEquipaments = repository.findAll();
+		Assert.assertEquals(mongoEquipament1.getId(), elsMeusEquipaments.get(0).getId());
+		Assert.assertEquals(mongoEquipament1.getNom(), elsMeusEquipaments.get(0).getNom());
+		Assert.assertEquals(mongoEquipament2.getId(), elsMeusEquipaments.get(1).getId());
+		Assert.assertEquals(mongoEquipament2.getNom(), elsMeusEquipaments.get(1).getNom());
+		Assert.assertEquals(mongoEquipament3.getId(), elsMeusEquipaments.get(2).getId());
+		Assert.assertEquals(mongoEquipament3.getNom(), elsMeusEquipaments.get(2).getNom());
+
+		// Test no exception launched
+		repository.save(new ArrayList&lt;MongoEquipament&gt;());
+	}
+
+	@Test
+	public void test3NomNotNull() {
+		MongoEquipament mongoEquipament = new MongoEquipament();
+		mongoEquipament.setNom(null);
+		try {
+			repository.save(mongoEquipament);
+		} catch (ConstraintViolationException e) {
+			Set&lt;ConstraintViolation&lt;?&gt;&gt; violations = e.getConstraintViolations();
+			Assert.assertEquals(1, violations.size());
+			@SuppressWarnings(&quot;rawtypes&quot;)
+			ConstraintViolation violation = (ConstraintViolation) violations.iterator().next();
+			Assert.assertEquals(&quot;MongoEquipament's nom must not be null&quot;, violation.getMessageTemplate());
+		}
+	}
+
+	@Test
+	public void test4FindByNomQuery() {
+		MongoEquipament mongoEquipament = new MongoEquipament();
+		mongoEquipament.setNom(&quot;findByNomQuery&quot;);
+		mongoEquipament.setMunicipi(&quot;findByNomQuery&quot;);
+		repository.save(mongoEquipament);
+
+		List&lt;MongoEquipament&gt; mongoEquipamentList = repository.findByNomQuery(&quot;findByNomQuery&quot;);
+
+		assertThat(mongoEquipamentList, notNullValue());
+		assertThat(mongoEquipamentList, hasSize(1));
+	}
+
+	@Test
+	public void test5FindByNomLike() {
+		MongoEquipament mongoEquipament = new MongoEquipament();
+		mongoEquipament.setNom(&quot;findByNomLike&quot;);
+		mongoEquipament.setMunicipi(&quot;findByNomLike&quot;);
+		repository.save(mongoEquipament);
+
+		List&lt;MongoEquipament&gt; mongoEquipamentList = repository.findByNomLike(&quot;Like&quot;, null);
+
+		assertThat(mongoEquipamentList, notNullValue());
+		assertThat(mongoEquipamentList, hasSize(1));
+	}
+
+	@Test
+	public void test6FindAllPaginatedPath() {
+		MongoEquipament mongoEquipament = new MongoEquipament();
+		mongoEquipament.setNom(&quot;findPaginatedPath&quot;);
+		mongoEquipament.setMunicipi(&quot;findPaginatedPath&quot;);
+		repository.save(mongoEquipament);
+
+		Path&lt;?&gt;[] paths = { QMongoEquipament.mongoEquipament.id, QMongoEquipament.mongoEquipament.nom,
+				QMongoEquipament.mongoEquipament.municipi };
+
+		List&lt;MongoEquipament&gt; mongoEquipamentList = repository.findAll(QMongoEquipament.mongoEquipament.nom.isNotNull().and(QMongoEquipament.mongoEquipament.nom.isNotEmpty())
+						.and(QMongoEquipament.mongoEquipament.municipi.isNotNull())
+						.and(QMongoEquipament.mongoEquipament.municipi.isNotEmpty())
+						.and(QMongoEquipament.mongoEquipament.nom.equalsIgnoreCase(&quot;findPaginatedPath&quot;)),
+				new PageRequest(0, 10), paths).getContent();
+
+		assertThat(mongoEquipamentList, notNullValue());
+		assertThat(mongoEquipamentList, hasSize(1));
+	}
+
+	@Test
+	public void test7FindPaginatedPaths() {
+		for (int i = 0; i &lt; 20; i++) {
+			MongoEquipament mongoEquipament = new MongoEquipament();
+			mongoEquipament.setNom(&quot;findPaginatedPaths&quot; + i);
+			mongoEquipament.setMunicipi(&quot;findPaginatedPaths&quot; + i);
+			repository.save(mongoEquipament);
+		}
+
+		Integer page = 1;
+		Integer rpp = 10;
+		String sort = &quot;-municipi&quot;;
+		String filter = null;
+		String fields = &quot;id,municipi&quot;;
+
+		List&lt;MongoEquipament&gt; mongoEquipamentList = findPaginatedPaths(page, rpp, sort, filter, fields).getContent();
+
+		assertThat(mongoEquipamentList, notNullValue());
+		assertThat(mongoEquipamentList, hasSize(rpp));
+	}
+
+	@Test
+	public void test8FindPaginatedPathId() {
+		for (int i = 0; i &lt; 20; i++) {
+			MongoEquipament mongoEquipament = new MongoEquipament();
+			mongoEquipament.setNom(&quot;findPaginatedPathId&quot; + i);
+			mongoEquipament.setMunicipi(&quot;findPaginatedPathId&quot; + i);
+			repository.save(mongoEquipament);
+		}
+
+		Integer page = 1;
+		Integer rpp = 10;
+		String sort = &quot;-municipi&quot;;
+		String filter = null;
+
+		List&lt;MongoEquipament&gt; mongoEquipamentList = findPaginatedPathId(page, rpp, sort, filter).getContent();
+
+		assertThat(mongoEquipamentList, notNullValue());
+		assertThat(mongoEquipamentList, hasSize(rpp));
+	}
+
+	@Test
+	public void test9FindPaginatedFactoryExpression() {
+		for (int i = 0; i &lt; 20; i++) {
+			MongoEquipament mongoEquipament = new MongoEquipament();
+			mongoEquipament.setNom(&quot;findPaginatedProjeccio&quot; + i);
+			mongoEquipament.setMunicipi(&quot;findPaginatedProjeccio&quot; + i);
+			repository.save(mongoEquipament);
+		}
+
+		Integer page = 1;
+		Integer rpp = 10;
+		String sort = &quot;-municipi&quot;;
+		String filter = null;
+		String fields = &quot;id,municipi&quot;;
+
+		List&lt;MongoEquipament&gt; mongoEquipamentList = findPaginatedFactoryExpression(page, rpp, sort, filter, fields)
+				.getContent();
+
+		assertThat(mongoEquipamentList, notNullValue());
+		assertThat(mongoEquipamentList, hasSize(rpp));
+	}
+
+	@Test
+	public void test10FindPaginatedPathsFiltered() {
+		for (int i = 0; i &lt; 20; i++) {
+			MongoEquipament mongoEquipament = new MongoEquipament();
+			mongoEquipament.setNom(&quot;findPaginatedPaths&quot; + i);
+			mongoEquipament.setMunicipi(&quot;findPaginatedPaths&quot; + i);
+			repository.save(mongoEquipament);
+		}
+
+		Integer page = 1;
+		Integer rpp = 10;
+		String sort = &quot;-municipi&quot;;
+		String filter = &quot;municipi:findPaginatedPaths0&quot;;
+		String fields = &quot;id,municipi&quot;;
+
+		List&lt;MongoEquipament&gt; mongoEquipamentList = findPaginatedPaths(page, rpp, sort, filter, fields).getContent();
+
+		assertThat(mongoEquipamentList, notNullValue());
+		assertThat(mongoEquipamentList, hasSize(1));
+	}
+
+	protected Page&lt;MongoEquipament&gt; findPaginatedPaths(final Integer page, final Integer rpp, final String sort,
+			final String filter, final String fields) {
+
+		Predicate predicate = getPredicate(filter);
+
+		Pageable pageable = new PageRequest(page - 1, rpp, getOrdenacio(sort));
+
+		List&lt;Path&lt;?&gt;&gt; listFields = getListFields(fields);
+
+		return repository.findAll(predicate, pageable, listFields);
+	}
+
+	private List&lt;Path&lt;?&gt;&gt; getListFields(String fields) {
+		QMongoEquipament qmongoequipament = QMongoEquipament.mongoEquipament;
+
+		List&lt;Path&lt;?&gt;&gt; listFields = new ArrayList&lt;Path&lt;?&gt;&gt;();
+
+		if (fields != null &amp;&amp; fields != &quot;&quot;) {
+			String[] selectedFields = fields.split(&quot;,&quot;);
+			for (int i = 0; i &lt; selectedFields.length; i++) {
+				switch (selectedFields[i]) {
+				case MongoEquipament.ID:
+					listFields.add(qmongoequipament.id);
+					break;
+				case MongoEquipament.NOM:
+					listFields.add(qmongoequipament.nom);
+					break;
+				case MongoEquipament.MUNICIPI:
+					listFields.add(qmongoequipament.municipi);
+					break;
+
+				default:
+					break;
+				}
+			}
+		}
+
+		return listFields;
+	}
+
+	private Predicate getPredicate(String filter) {
+		GenericPredicateBuilder&lt;MongoEquipament&gt; builder = new GenericPredicateBuilder&lt;MongoEquipament&gt;(
+				MongoEquipament.class, &quot;equipament&quot;);
+		builder.populateSearchCriteria(filter);
+		return builder.build();
+	}
+
+	protected Page&lt;MongoEquipament&gt; findPaginatedPathId(final Integer page, final Integer rpp, final String sort,
+			final String filter) {
+
+		Predicate predicate = getPredicate(filter);
+
+		Pageable pageable = new PageRequest(page - 1, rpp, getOrdenacio(sort));
+
+		return repository.findAll(predicate, pageable, QMongoEquipament.mongoEquipament.id);
+	}
+
+	protected Page&lt;MongoEquipament&gt; findPaginatedFactoryExpression(final Integer page, final Integer rpp,
+			final String sort, final String filter, final String fields) {
+
+		Predicate predicate = getPredicate(filter);
+
+		Pageable pageable = new PageRequest(page - 1, rpp, getOrdenacio(sort));
+
+		List&lt;Path&lt;?&gt;&gt; listFields = getListFields(fields);
+
+		Expression[] arrayExpression = listFields.toArray(new Expression[0]);
+
+		return repository.findAll(predicate, pageable, Projections.bean(MongoEquipament.class, arrayExpression));
+	}
+
+	private Sort getOrdenacio(String sort) {
+		Sort resultat = null;
+
+		List&lt;Order&gt; orders = new ArrayList&lt;Order&gt;();
+
+		if (sort != null &amp;&amp; sort != &quot;&quot;) {
+			String[] fields = sort.split(&quot;,&quot;);
+
+			for (int i = 0; i &lt; fields.length; i++) {
+				char direction = fields[i].charAt(0);
+				if (Character.toString(direction).equals(&quot;-&quot;)) {
+					// Order descendente
+					String value = fields[i].substring(1);
+					orders.add(new Order(Direction.DESC, value));
+				} else {
+					// Orden ascendente
+					orders.add(new Order(Direction.ASC, fields[i]));
+				}
+			}
+		}
+
+		resultat = new Sort(orders);
+
+		return resultat;
+	}
+
+}
+</code></pre>
+
+<p>Per utilitzar la configuració definida al fitxer mongodb.properties podriem utilitzar directament la configuració de MongoDB de l&rsquo;aplicació:</p>
+
+<pre><code>import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import cat.gencat.ctti.config.AppConfig;
+import cat.gencat.ctti.mongodb.config.EquipamentMongoConfig;
+import cat.gencat.ctti.mongodb.model.repository.EquipamentMongoRepository;
+
+/**
+ * Test cases for the {@link EquipamentMongoRepository}.
+ */
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = { AppConfig.class, EquipamentMongoConfig.class })
+public class EquipamentMongoRepositoryTest extends EquipamentMongoRepositoryCoreTest{
+	
+}
+</code></pre>
+
+<p>Per utilitzar la configuració amb Embeded MongoBD, si no hem importat el EquipamentMongoConfig en el AppConfig:</p>
+
+<pre><code>import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import cat.gencat.ctti.config.AppConfig;
+import cat.gencat.ctti.mongodb.config.EquipamentEmbeddedMongoConfig;
+import cat.gencat.ctti.mongodb.model.repository.EquipamentMongoRepository;
+
+/**
+ * Test cases for the {@link EquipamentMongoRepository}.
+ */
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = { AppConfig.class, EquipamentEmbeddedMongoConfig.class })
+public class EquipamentEmbeddedMongoRepositoryTest extends EquipamentMongoRepositoryCoreTest{
+	
+}
+</code></pre>
+
+<p>O crear un nou AppConfig important el EquipamentEmbeddedMongoConfig i carregar-lo al test:</p>
+
+<pre><code>import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import cat.gencat.ctti.mongodb.config.EquipamentEmbeddedMongoConfig;
+
+@Configuration
+@PropertySource(&quot;classpath:/config/props/boot.properties&quot;)
+@ImportResource({ &quot;classpath:cat/gencat/ctti/canigo/arch/core/config/canigo-core.xml&quot; })
+@EnableTransactionManagement
+@Import(EquipamentEmbeddedMongoConfig.class)
+public class EmbeddedMongoAppConfig {
+
+}
+</code></pre>
+
+<pre><code>import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import cat.gencat.ctti.config.EmbeddedMongoAppConfig;
+import cat.gencat.ctti.mongodb.model.repository.EquipamentMongoRepository;
+
+/**
+ * Test cases for the {@link EquipamentMongoRepository}.
+ */
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = { EmbeddedMongoAppConfig.class})
+public class EquipamentEmbeddedMongoRepositoryTest extends EquipamentMongoRepositoryCoreTest{
+	
+}
+</code></pre>
+
+<p>Per més informació sobre <a href="https://flapdoodle-oss.github.io/de.flapdoodle.embed.mongo/">Embeded MongoDB</a></p>
+
+<h3 id="logs">Logs</h3>
+
+<p>Si es necessari el pintat de les consultes realitzades pel mòdul a la Base de Dades MongoDB, es pot afegir un &ldquo;logger&rdquo; per la categoria &ldquo;org.springframework.data.mongodb.core.MongoTemplate&rdquo; al fitxer &ldquo;log4j&rdquo; de l&rsquo;aplicació
+Així per exemple si volem pintar les querys en el fitxer de logs, podriem tenir al nostre fitxer &ldquo;log4j&rdquo;:</p>
+
+<pre><code>		&lt;Logger name=&quot;org.springframework.data.mongodb.core.MongoTemplate&quot; level=&quot;debug&quot; additivity=&quot;false&quot;&gt;
+			&lt;AppenderRef ref=&quot;DAILY_LOG&quot; /&gt;
+		&lt;/Logger&gt;
+</code></pre>
+
+
+					
+
+					
+				</div>	
+
+			</article>	
+
+
+	</section>	
+
+		<div class="fons_footer ">
+		<footer class="container center-block shadowBox2">
+			<div class="shadow2"></div>
+			<div class="row footer_tab_ord">
+
+				<div class="footer_tab_bot col-sm-12">
+					<div class="avis_legal">
+
+						<div id="fAvisLegal">
+							<div>
+								<div class="hidden-xs">
+									<a href="https://www.gencat.cat"> <img
+										src="/img/logo_generalitat_gris.png_679097835.png"
+										width="101" height="27" alt="www.gencat.cat"
+										/></a>
+									<p>
+										<a title="Avis legal" href="https://web.gencat.cat/ca/menu-ajuda/ajuda/avis_legal/" target="_self">Avís legal</a>: La &copy; Generalitat de Catalunya permet la reutilització dels continguts i de les dades sempre que se citi la font i la data d'actualització, que no es desnaturalitzi la informació i que no es contradigui amb una llicència específica.
+									</p>
+								</div>
+								<div class="visible-xs avis_legal">
+									<p>
+										<a title="Avis legal" href="https://web.gencat.cat/ca/menu-ajuda/ajuda/avis_legal/" target="_self">Avís legal</a>: La &copy; Generalitat de Catalunya permet la reutilització dels continguts i de les dades sempre que se citi la font i la data d'actualització, que no es desnaturalitzi la informació i que no es contradigui amb una llicència específica.
+									</p>
+								</div>
+								
+								<div class="fi_peu visible-xs">
+									<a title="www.gencat.cat" href="https://www.gencat.cat"> <img
+										src="/img/logo_generalitat_gris.png_679097835.png"
+										width="101" height="27" 
+										alt="www.gencat.cat" /></a> <a class="torna_amunt pull-right"
+										href=" javascript:tornarAmunt();" title="Torna amunt">
+										<p>Torna amunt</p>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+<script src="/js/master.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
+<script src="/js/custom.js" type="text/javascript"></script>
+
+
+
+<script type="text/javascript">
+
+if(location.hostname!=="localhost"){
+
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', "UA-59408075-1", 'auto');
+	ga('send', 'pageview', {
+	  	'page': location.pathname + location.search  + location.hash
+	  }
+	);
+
+}
+
+</script>
+
+
+
+
+</body>
+</html>

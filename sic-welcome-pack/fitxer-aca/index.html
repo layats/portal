@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html xml:lang="ca-ES" lang="ca-ES" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+	<title>Com construir el fitxer ACA</title>
+		<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+	<link href="/css/master.min.css" rel="stylesheet" type="text/css" />
+	<link href="/css/canigo.css" rel="stylesheet" type="text/css" />
+	<script src="/js/jquery.min.js" type="text/javascript"></script>
+
+	<script>
+		document.write("<meta name=\"titol\" content=\"Com construir el fitxer ACA\" />");
+		document.write("<meta name=\"description\" content=\"Guia amb la informació de construcció del fitxer ACA per a l\x27Autoservei de Jobs\" />");
+	</script>
+
+	
+
+</head>
+<body class="single">
+	<div class="contenidor unfixed">
+
+				
+
+		<header class="fons_header navbar navbar-default z-index-menu">
+			<div class="container" role="menu">
+				<div class="row clearfix menuNav">
+					<div class="col-md-3 col-xs-3 column visible-xs coloca ">
+						<button type="button" onclick="amunt();" title="Menu"
+							class="navbar-toggle pull-left" data-toggle="collapse"
+							data-target=".navbar-collapse">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+					</div>
+
+					<div class="col-md-3 col-xs-6 col-offset-2 column visible-xs titol-mobil">
+						
+						<span class="white titol-mobil-destacat">canigo.ctti</span><span class="white">.gencat.cat</span>
+					</div>
+
+					<div class="col-md-3 col-xs-3 column visible-xs coloca1">
+						<button onclick="amunt();" type="button" title="Cerca"
+							class="ico_cerca " data-toggle="collapse" data-target=".dos">
+						</button>
+					</div>
+
+				</div>
+
+				<div class="collapse dos">
+					<div class="shadowBox">
+						<form class="navbar-form navbar-left primer" action="/cercador/" method="get"
+ 						onsubmit="location.href=this.action+'?q='+this.cerca_cap.value; return false;">
+							<div class="form-group">
+								<input type="search" class="form-control" name="q" id="cerca_cap"
+									title="Cerca"
+									placeholder="Cerca" />
+								<button type="button" title="Neteja" class="btn btn-default"></button>
+								<input type="submit" class="ocult" name="Cerca" value="Cerca" />
+							</div>
+						</form>
+					</div>
+				</div>	
+
+				<nav class="collapse navbar-collapse navbar-ex1-collapse ">
+				
+					<div class="row">
+						<div class="col-md-6 col-sm-4 column">
+							<a class="img-responsive logo" title="Generalitat de Catalunya"
+								href="https://ctti.gencat.cat/">gencat.cat</a>
+							<button class="menu_tancar visible-xs collapsed"
+								data-target=".navbar-collapse" data-toggle="collapse"
+								title="Tancar"></button>
+						</div>
+
+						<div class="col-md-6 col-sm-8 column hidden-xs hidden-mg">
+							<form class="navbar-form cercador_vermell hidden-xs pull-right" action="/cercador/"  method="get" onsubmit="location.href=this.action+'?q='+this.cerca2.value; return false;">
+								<div class="form-group">
+									<label class="hidden" for="cerca2">Cerca</label>
+									<input id="cerca2" class="form-control" type="search" 
+									placeholder="Cerca" name="q" title="Cerca">
+									<input class="btn btn-default" type="submit" title="Cerca" value="">
+								</div>
+							</form>
+
+							
+
+						</div>
+
+					</div>
+					<div class="col-xs-12 hidden-xs" id="nomPortal">
+                    	<span class="titol-cap-nou">Centre de Telecomunicacions i Tecnologies de la Informació</span>
+                    </div>					
+					<ul class="nav navbar-nav">
+
+			        	
+
+						<li>
+							<a class="dropdown-toggle" href='/' data-toggle='_dropdown'>Inici</a>
+						</li>
+
+						
+
+						<li>
+							<a class="dropdown-toggle" href='/arqctti' data-toggle='_dropdown'>Arquitectura CTTI</a>
+						</li>
+
+						
+
+						<li>
+							<a class="dropdown-toggle" href='/blog' data-toggle='_dropdown'>Blog</a>
+						</li>
+
+						
+
+						<li>
+							<a class="dropdown-toggle" href='/cloud' data-toggle='_dropdown'>Cloud</a>
+						</li>
+
+						
+
+						<li>
+							<a class="dropdown-toggle" href='/canigo' data-toggle='_dropdown'>Canigó</a>
+						</li>
+
+						
+
+						<li>
+							<a class="dropdown-toggle" href='/sic' data-toggle='_dropdown'>SIC</a>
+						</li>
+
+						
+
+						<li>
+							<a class="dropdown-toggle" href='/sgde' data-toggle='_dropdown'>SGDE</a>
+						</li>
+
+						
+
+						<li>
+							<a class="dropdown-toggle" href='/gicar' data-toggle='_dropdown'>GICAR</a>
+						</li>
+
+						
+
+						<li>
+							<a class="dropdown-toggle" href='/cs' data-toggle='_dropdown'>Centres de Suport</a>
+						</li>
+
+						
+
+						<li>
+							<a class="dropdown-toggle" href='/dadesref' data-toggle='_dropdown'>Gestió Tècnica de Dades</a>
+						</li>
+
+						
+
+					</ul>
+
+				</nav>
+			</div>
+		</header>
+
+
+
+	</div>
+
+	<section class="border-start">
+
+						
+			
+
+			<article class="bgGrey">
+				<div class="container">
+					<div class="row">
+						<div class="capcelera_basica col-sm-12">
+							<div class="capcelera_basica_cont">
+								<ol class="breadcrumb filariana hidden-xs">
+									<li>
+										<a href="/">Inici</a>
+									</li>
+									<li class="breadcrumbs2">
+									
+										<a href="/sic-welcome-pack">
+											
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+										</a>
+										
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<a href="/sic/">Servei d'Integració Contínua</a> </li>
+	<li>
+	
+		<a href="/sic-welcome-pack/">
+	
+
+	Welcome pack
+
+	
+		</a>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									
+									</li>
+
+								</ol>
+
+								<h1 class="capcelera_flotant pull-left" data-txt=".title">
+									
+
+										
+											
+
+
+
+
+
+	Com construir el fitxer ACA
+
+
+										
+
+									
+								</h1>
+
+								
+
+								
+								
+
+								
+
+								
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</article>
+
+			
+
+
+		   <div class="padding-xs container">
+	    	
+	    	   <i><b>Darrera actualització:</b></i> 07-01-2019
+	        
+           </div>
+           
+			<article class="padding-xs padding-sm padding-md contingut">				
+				<div class="container">
+ 		
+					
+				
+
+	
+
+	<div class="row" id="TOC">
+		<div class="col-md-12 col-xs-12"> 
+			<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#introducció">Introducció</a></li>
+<li><a href="#requeriments-generals">Requeriments generals</a></li>
+<li><a href="#exemple-aplicació-d-equipaments">Exemple: Aplicació d&rsquo;equipaments</a>
+<ul>
+<li><a href="#acordar-denominacions-d-infraestructura">Acordar denominacions d&rsquo;infraestructura</a></li>
+<li><a href="#construcció-de-l-aca">Construcció de l&rsquo;ACA</a>
+<ul>
+<li><a href="#versió">Versió</a></li>
+<li><a href="#paràmetres">Paràmetres</a></li>
+<li><a href="#recursos">Recursos</a>
+<ul>
+<li><a href="#entorns">Entorns</a></li>
+<li><a href="#infraestructures">Infraestructures</a></li>
+<li><a href="#artefactes">Artefactes</a></li>
+</ul></li>
+<li><a href="#procés-de-construcció">Procés de construcció</a></li>
+<li><a href="#procés-de-desplegament">Procés de desplegament</a></li>
+<li><a href="#notificacions">Notificacions</a></li>
+<li><a href="#resultat-final">Resultat final</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    	</div>
+	</div>
+
+	
+
+
+					
+
+						
+
+<h2 id="introducció">Introducció</h2>
+
+<p>Dins el sistema d&rsquo;Integració Contínua, el SIC proporciona un servei mitjançant el qual, amb el treball col·laboratiu dels proveïdors d&rsquo;aplicacions i d&rsquo;infraestructures i sense la intervenció de l&rsquo;equip del SIC, es pot <strong>construir un job d’automatització de la construcció i del desplegament</strong> de forma automàtica.</p>
+
+<h2 id="requeriments-generals">Requeriments generals</h2>
+
+<p>S&rsquo;estableixen una sèrie de requeriments per a estar en disposició de preparar el fitxer:</p>
+
+<ul>
+<li><strong>Col·laboració</strong>: el proveïdor d&rsquo;aplicacions i el proveïdor d&rsquo;infraestructures han d&rsquo;estar disposats a col·laborar i mantenir una comunicació de cara a alinear la configuració.</li>
+<li><strong>L&rsquo;aplicació ha de ser integrable amb l&rsquo;automatització de la construcció i del desplegament</strong>: el sistema ha de ser capaç de construir i desplegar l&rsquo;aplicació, per lo que la seva tecnologia i especificitats han d&rsquo;estar contemplades al sistema d&rsquo;Integració Continua.</li>
+<li>Tenir constància dels <strong>entorns</strong> on es desplegarà l&rsquo;aplicació i les <strong>modalitats de desplegament</strong> aplicables en cada cas.</li>
+<li>Per als entorns amb modalitat de desplegament automàtic, disposar dels <strong>identificadors d&rsquo;infraestructures</strong> de desplegament.</li>
+</ul>
+
+<h2 id="exemple-aplicació-d-equipaments">Exemple: Aplicació d&rsquo;equipaments</h2>
+
+<p>A mode d&rsquo;exemple, mostrarem com s&rsquo;integraria una aplicació Canigó 3.2.4 com la d&rsquo;Equipaments a l&rsquo;Autoservei de jobs del SIC a partir de les següents consideracions:</p>
+
+<ul>
+<li><strong>Codi d&rsquo;aplicació: 9999</strong></li>
+<li>Proveïdor d&rsquo;aplicacions: <strong>lot A99</strong></li>
+<li>Proveïdor d&rsquo;infraestructures: <strong>CPD9</strong></li>
+<li>Entorns i modalitats de desplegament: <strong>INT (automàtica), PRE i PRO (semiautomàtica)</strong>.</li>
+<li><strong>Aplicació Canigó 3.2.4</strong>.</li>
+<li>Backend que en construir-se genera un <strong>artefacte estàtic i un artefacte dinàmic</strong> que es despleguen en servidor web <strong>Apache i Tomcat</strong> (respectivament).</li>
+<li><strong>DB h2</strong> embeguda.</li>
+<li>Projecte <strong>repositat al GitLab</strong>, incloent l&rsquo;arxiu <code>sic.yml</code> que inclou la versió actual de l&rsquo;aplicació.</li>
+</ul>
+
+<h3 id="acordar-denominacions-d-infraestructura">Acordar denominacions d&rsquo;infraestructura</h3>
+
+<p>A l&rsquo;<strong>Arxiu de Configuració de l&rsquo;Aplicació (ACA)</strong>, els proveïdors d&rsquo;aplicacions han de fer referència a les infraestructures on despleguen el seus artefactes. No cal que en coneixin els detalls, simplement cal que s&rsquo;enumerin indicant en quins entorns estan habilitades. Aquesta informació l&rsquo;ha de facilitar el proveïdor d&rsquo;infraestructures i que es declararan a l&rsquo;<strong>Arxiu de Configuració d&rsquo;Infraestructures (ACI)</strong>.</p>
+
+<p>En el cas d&rsquo;exemple, s&rsquo;hi identifiquen les següents:</p>
+
+<ul>
+<li><strong>Apache</strong> → <code>9999_equipaments_apaches</code></li>
+<li><strong>Tomcat</strong> → <code>9999_equipaments_tomcats</code></li>
+</ul>
+
+<h3 id="construcció-de-l-aca">Construcció de l&rsquo;ACA</h3>
+
+<p>El proveïdor d&rsquo;aplicacions haurà de generar l&rsquo;ACA al repositori del seu projecte, concretament: <code>/sic/aca.yml</code>.</p>
+
+<h4 id="versió">Versió</h4>
+
+<p>Caldrà indicar la versió de l&rsquo;ACA, que segueix un versionatge diferent al de l&rsquo;aplicació. En aquest cas, cada increment de versió es correspon amb <strong>canvis en les especificacions de construcció i/o desplegament</strong>.</p>
+
+<pre><code>version: X.Y.Z
+</code></pre>
+
+<h4 id="paràmetres">Paràmetres</h4>
+
+<p>Caldrà indicar els paràmetres (són opcionals, per lo que pot tractar-se d&rsquo;una llista de 0 elements). Els paràmetres s&rsquo;utilitzen per aplicar substitucions, de forma que on aparegui <code>${nom_param}</code> s&rsquo;aplicarà el valor <code>valor_param</code>.</p>
+
+<pre><code>parameters:
+  - name: nom_param_1
+    value: valor_param_1
+  - name: nom_param_2
+    value: valor_param_2
+</code></pre>
+
+<h4 id="recursos">Recursos</h4>
+
+<p>Caldrà definir els recursos dins l&rsquo;entitat <code>resources</code>. Hi ha tres tipus de recursos:</p>
+
+<ul>
+<li>Entorns (<code>environments</code>)</li>
+<li>Infraestructures (<code>infrastructures</code>)</li>
+<li>Artefactes (<code>artifacts</code>)</li>
+</ul>
+
+<h5 id="entorns">Entorns</h5>
+
+<p>Es tracta de definir els entorns de desplegament, incloent el seu ordre i la modalitat de desplegament aplicada:</p>
+
+<pre><code>resources:
+  environments:
+    - id: int
+      environment: int
+      position: 1
+      deploymentType: AUTOMATIC
+    - id: pre
+      environment: pre
+      position: 2
+      deploymentType: SEMIAUTOMATIC
+    - id: pro
+      environment: pro
+      position: 3
+      deploymentType: SEMIAUTOMATIC
+</code></pre>
+
+<h5 id="infraestructures">Infraestructures</h5>
+
+<p>Caldrà relacionar les denominacions d&rsquo;infraestructures indicades pel proveïdor: tipus <code>element</code>, entorns <code>environments</code> i identificador del proveïdor <code>provider</code>.
+En aquest cas, no hi ha cap variable d&rsquo;entorn requerida a nivell d’infraestructura, per tant quedaria buida la secció <code>vars</code>.</p>
+
+<pre><code>resources:
+  (...)
+  infrastructures:
+    - id: 9999_equipaments_apaches
+      element: apache
+      environments:
+        - environment: int
+          vars:
+        - environment: pre
+          vars:
+        - environment: pro
+          vars:
+      provider: cpd9
+    - id: 9999_equipaments_tomcats
+      element: tomcat
+      environments:
+        - environment: int
+          vars:
+        - environment: pre
+          vars:
+        - environment: pro
+          vars:
+      provider: cpd9
+</code></pre>
+
+<h5 id="artefactes">Artefactes</h5>
+
+<p>Els artefactes generats, en aquest cas, són dos: un artefacte dinàmic i un d&rsquo;estàtic. Caldrà incloure la ruta corresponent de cada un d&rsquo;ells:</p>
+
+<pre><code>resources:
+  (...)
+  artifacts:
+    - id: artifact01
+      artifactType: static
+      path: target/equipaments-static.zip
+    - id: artifact02
+      artifactType: dynamic
+      path: target/equipaments.war
+</code></pre>
+
+<h4 id="procés-de-construcció">Procés de construcció</h4>
+
+<p>Per a construir l&rsquo;aplicació Equipaments, caldrà executar una comanda maven amb els goals <code>clean</code> i <code>package</code>. És pot realitzar en un únic pas, per tant, s&rsquo;hauria d&rsquo;incloure un únic <strong>step</strong>:</p>
+
+<pre><code>build:
+  steps:
+    - id: bs001
+      position: 1
+      tool: maven_3.2.2
+      parameters: clean package -Dmaven.test.skip=true
+      jdk: JDK 1.8 
+      generates:
+        - artifact01
+        - artifact02
+</code></pre>
+
+<p>La secció <code>generates</code> inclou una relació d&rsquo;artefactes generats. Aquests han de correspondre amb els declarats a la secció <code>resources.artifacts</code>.</p>
+
+<h4 id="procés-de-desplegament">Procés de desplegament</h4>
+
+<p>Per al procés de desplegament, caldrà definir el desplegament de l&rsquo;artefacte estàtic als servidors Apaches i de l&rsquo;artefacte dinàmic als servidors Tomcat:</p>
+
+<pre><code>deploy:
+  steps:
+    - id: dp001
+      position: 1
+      type: predefined
+      destination: 9999_equipaments_apaches
+      artifact: artifact01
+    - id: dp002
+      position: 2
+      type: predefined
+      destination: 9999_equipaments_tomcats
+      artifact: artifact02
+</code></pre>
+
+<p>En aquest cas, hem optat per fer primer el desplegament de la capa web i a continuació el desplegament de la capa d&rsquo;aplicació.</p>
+
+<h4 id="notificacions">Notificacions</h4>
+
+<p>Finalment, caldrà indicar les adreces de correu electrònic on notificar accions manuals en espera i resultats de l’execució:</p>
+
+<pre><code>notificationRecipients:
+    - usuari1@domini
+    - usuari2@domini
+</code></pre>
+
+<h4 id="resultat-final">Resultat final</h4>
+
+<p>D&rsquo;aquesta manera, el fitxer resultant quedaria de la següent manera:</p>
+
+<pre><code>version: 1.2.2
+parameters:
+resources:
+  environments:
+    - id: int
+      environment: int
+      position: 1
+      deploymentType: AUTOMATIC
+    - id: pre
+      environment: pre
+      position: 2
+      deploymentType: SEMIAUTOMATIC
+    - id: pro
+      environment: pro
+      position: 3
+      deploymentType: SEMIAUTOMATIC
+  infrastructures:
+    - id: 9999_equipaments_apaches
+      element: apache
+      environments:
+        - environment: int
+          vars:
+        - environment: pre
+          vars:
+        - environment: pro
+          vars:
+      provider: cpd9
+    - id: 9999_equipaments_tomcats
+      element: tomcat
+      environments:
+        - environment: int
+          vars:
+        - environment: pre
+          vars:
+        - environment: pro
+          vars:
+      provider: cpd9
+  artifacts:
+    - id: artifact01
+      artifactType: static
+      path: target/canigo324-static.zip
+    - id: artifact02
+      artifactType: dynamic
+      path: target/canigo324.war.original
+build:
+  steps:
+    - id: bs001
+      position: 1
+      tool: maven_3.2.2
+      jdk: JDK 1.8
+      parameters: clean package -Dmaven.test.skip=true
+      generates:
+        - artifact01
+        - artifact02
+deploy:
+  steps:
+    - id: dp001
+      position: 1
+      type: predefined
+      destination: 9999_equipaments_apaches
+      artifact: artifact01
+    - id: dp002
+      position: 2
+      type: predefined
+      destination: 9999_equipaments_tomcats
+      artifact: artifact02
+notificationRecipients:
+    - usuari1@domini
+    - usuari2@domini
+</code></pre>
+
+<p><br/><br/><br/>
+Si voleu més informació podeu consultar la secció de <a href="/sic/manuals/">Manuals</a>. <br/>
+Si teniu qualsevol dubte o problema assegureu-vos de no trobar resposta a les <a href="/sic/faq">FAQ</a> i utilitzeu el canal de <a href="/sic/suport">Suport</a> o contacteu amb l&rsquo;Oficina Tècnica Canigó CTTI a través del correu electrònic: <strong>oficina-tecnica.canigo.ctti@gencat.cat</strong>.</p>
+
+
+					
+
+					
+				</div>	
+
+			</article>	
+
+
+	</section>	
+
+		<div class="fons_footer ">
+		<footer class="container center-block shadowBox2">
+			<div class="shadow2"></div>
+			<div class="row footer_tab_ord">
+
+				<div class="footer_tab_bot col-sm-12">
+					<div class="avis_legal">
+
+						<div id="fAvisLegal">
+							<div>
+								<div class="hidden-xs">
+									<a href="https://www.gencat.cat"> <img
+										src="/img/logo_generalitat_gris.png_679097835.png"
+										width="101" height="27" alt="www.gencat.cat"
+										/></a>
+									<p>
+										<a title="Avis legal" href="https://web.gencat.cat/ca/menu-ajuda/ajuda/avis_legal/" target="_self">Avís legal</a>: La &copy; Generalitat de Catalunya permet la reutilització dels continguts i de les dades sempre que se citi la font i la data d'actualització, que no es desnaturalitzi la informació i que no es contradigui amb una llicència específica.
+									</p>
+								</div>
+								<div class="visible-xs avis_legal">
+									<p>
+										<a title="Avis legal" href="https://web.gencat.cat/ca/menu-ajuda/ajuda/avis_legal/" target="_self">Avís legal</a>: La &copy; Generalitat de Catalunya permet la reutilització dels continguts i de les dades sempre que se citi la font i la data d'actualització, que no es desnaturalitzi la informació i que no es contradigui amb una llicència específica.
+									</p>
+								</div>
+								
+								<div class="fi_peu visible-xs">
+									<a title="www.gencat.cat" href="https://www.gencat.cat"> <img
+										src="/img/logo_generalitat_gris.png_679097835.png"
+										width="101" height="27" 
+										alt="www.gencat.cat" /></a> <a class="torna_amunt pull-right"
+										href=" javascript:tornarAmunt();" title="Torna amunt">
+										<p>Torna amunt</p>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+<script src="/js/master.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
+<script src="/js/custom.js" type="text/javascript"></script>
+
+
+
+<script type="text/javascript">
+
+if(location.hostname!=="localhost"){
+
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', "UA-59408075-1", 'auto');
+	ga('send', 'pageview', {
+	  	'page': location.pathname + location.search  + location.hash
+	  }
+	);
+
+}
+
+</script>
+
+
+
+
+</body>
+</html>

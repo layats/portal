@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Arquitectura CTTI. Generalitat de Catalunya </title>
+    <link>https://canigo.ctti.gencat.cat/centre-de-suport-related/</link>
+    <language>ca-es</language>
+    
+    
+    <updated>Sat, 24 Jan 2015 17:11:42 &#43;0100</updated>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     
+         
+    <item>
+      <title>
+        
+        SIC. Actualització de versió Gitlab
+      </title>
+      <link>https://canigo.ctti.gencat.cat/noticies/2019-07-19-sic-act_versio_scm/</link>
+      <pubDate>Fri, 19 Jul 2019 00:00:00 UTC</pubDate>
+      
+      <guid>https://canigo.ctti.gencat.cat/noticies/2019-07-19-sic-act_versio_scm/</guid>
+      <description>Durant els mesos de Maig i Juliol s&#39;han dut a terme actualitzacions del Servei de Custodia de Codi (Gitlab)</description>
+    </item>
+         
+    <item>
+      <title>
+        
+        SIC. Actualització de versió Jenkins
+      </title>
+      <link>https://canigo.ctti.gencat.cat/noticies/2019-07-19-sic-act_versio_ci/</link>
+      <pubDate>Fri, 19 Jul 2019 00:00:00 UTC</pubDate>
+      
+      <guid>https://canigo.ctti.gencat.cat/noticies/2019-07-19-sic-act_versio_ci/</guid>
+      <description>Durant els mesos de Maig i Juliol s&#39;han dut a terme actualitzacions del Servei d&#39;Integració Continua (Jenkins)</description>
+    </item>
+         
+    <item>
+      <title>
+        
+        SIC. Pilot de l&#39;autoservei de jobs pipeline amb TICxCAT i IBM
+      </title>
+      <link>https://canigo.ctti.gencat.cat/noticies/2019-06-15-sic-pilot-autoserveijobs_1/</link>
+      <pubDate>Fri, 19 Jul 2019 00:00:00 UTC</pubDate>
+      
+      <guid>https://canigo.ctti.gencat.cat/noticies/2019-06-15-sic-pilot-autoserveijobs_1/</guid>
+      <description>Durant el mes de Maig s&#39;ha dut a terme un projecte pilot per a la construcció i desplegament d&#39;aplicacions del proveÏdor TICxCAT i IBM mitjançant l&#39;autoservei de jobs pipeline</description>
+    </item>
+         
+    <item>
+      <title>
+        
+        STD. En servei nou entorn de Producció
+      </title>
+      <link>https://canigo.ctti.gencat.cat/noticies/2019-05-30-std-en-servei-nou-entorn-pro/</link>
+      <pubDate>Thu, 30 May 2019 00:00:00 UTC</pubDate>
+      
+      <guid>https://canigo.ctti.gencat.cat/noticies/2019-05-30-std-en-servei-nou-entorn-pro/</guid>
+      <description>L&#39;últim trimestre del 2018 es va iniciar un projecte d&#39;actualització tecnològica del STD (Servei de Transformació de Documents), realitzant una rearquitectura per tal de millorar l&#39;aïllament de les diferents funcionalitats que es proporcionen i la seva escalabilitat. En data 23/05/2019 s&#39;ha posat en servei el nou entorn de Producció</description>
+    </item>
+         
+    <item>
+      <title>
+        
+        SIC. Canvi de lots segons la nova contractació 2019
+      </title>
+      <link>https://canigo.ctti.gencat.cat/noticies/2019-05-06-sic-canvi-lots/</link>
+      <pubDate>Wed, 15 May 2019 00:00:00 UTC</pubDate>
+      
+      <guid>https://canigo.ctti.gencat.cat/noticies/2019-05-06-sic-canvi-lots/</guid>
+      <description>El dia 01/06/2019 es farà efectiva la nova configuració de lots de les aplicacions en base a la nova contractació de proveïdors del Centre de Telecomunicacions i Tecnologies de la Informació de la Generalitat de Catalunya</description>
+    </item>
+         
+    <item>
+      <title>
+        
+        Entorn desenvolupament. Actualització entorn versió 3.0.0
+      </title>
+      <link>https://canigo.ctti.gencat.cat/noticies/2019-04-23-Entorn-desenvolupament-3.0.0/</link>
+      <pubDate>Wed, 24 Apr 2019 00:00:00 UTC</pubDate>
+      
+      <guid>https://canigo.ctti.gencat.cat/noticies/2019-04-23-Entorn-desenvolupament-3.0.0/</guid>
+      <description>Des de CS Canigó, amb l&#39;objectiu de proporcionar la millor experiència, s&#39;ha actualitzat el programari de l&#39;entorn de desenvolupament amb les últimes versions estables del programari alineades amb Canigó 3.4</description>
+    </item>
+         
+    <item>
+      <title>
+        
+        STD. En servei nou entorn de Preproducció
+      </title>
+      <link>https://canigo.ctti.gencat.cat/noticies/2019-04-16-std-en-servei-nou-entorn-pre/</link>
+      <pubDate>Tue, 16 Apr 2019 00:00:00 UTC</pubDate>
+      
+      <guid>https://canigo.ctti.gencat.cat/noticies/2019-04-16-std-en-servei-nou-entorn-pre/</guid>
+      <description>L&#39;últim trimestre del 2018 es va iniciar un projecte d&#39;actualització tecnològica del STD (Servei de Transformació de Documents), realitzant una rearquitectura per tal de millorar l&#39;aïllament de les diferents funcionalitats que es proporcionen i la seva escalabilitat. En data 15/04/2019 s&#39;ha posat en servei el nou entorn de Preproducció</description>
+    </item>
+         
+    <item>
+      <title>
+        
+        Suport Cloud. Actualització documentació
+      </title>
+      <link>https://canigo.ctti.gencat.cat/noticies/2019-04-09-Welcome-pack-Suport-Cloud/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 UTC</pubDate>
+      
+      <guid>https://canigo.ctti.gencat.cat/noticies/2019-04-09-Welcome-pack-Suport-Cloud/</guid>
+      <description>Des de l&#39;oficina de Suport Cloud s&#39;ha realitzat una tasca important de millora de documentació, amb la finalitat que tant els proveïdors d&#39;aplicacions com la resta de participants en el cicle de vida d&#39;una aplicació al Cloud disposin del màxim d&#39;informació (tipus de clouds, plataformes disponibles, tasques d&#39;operacions, canals de comunicació, ...)</description>
+    </item>
+         
+    <item>
+      <title>
+        
+        Canigó. Publicació versió 3.4.0
+      </title>
+      <link>https://canigo.ctti.gencat.cat/noticies/2019-03-29-actualitzacio-canigo-3_4_0/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 UTC</pubDate>
+      
+      <guid>https://canigo.ctti.gencat.cat/noticies/2019-03-29-actualitzacio-canigo-3_4_0/</guid>
+      <description>S&#39;ha publicat una nova versió de Canigó donant suport a Spring 5, Spring Boot 2 i nous paradigmes de programació. També s’inclou l’actualització del connector amb la Plataforma de Serveis de Gestió Documental (PSGD)</description>
+    </item>
+         
+    <item>
+      <title>
+        
+        Canigó. Roadmap del framework
+      </title>
+      <link>https://canigo.ctti.gencat.cat/noticies/2019-02-20-roadmap-canigo/</link>
+      <pubDate>Wed, 20 Feb 2019 00:00:00 UTC</pubDate>
+      
+      <guid>https://canigo.ctti.gencat.cat/noticies/2019-02-20-roadmap-canigo/</guid>
+      <description>En aquesta notícia presentem el roadmap previst per les properes versions del framework Canigó</description>
+    </item>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+  </channel>
+</rss>
